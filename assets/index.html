@@ -94,61 +94,61 @@
                         name: "navada",
                         singer: "Vicetone",
                         path: "./assets/music/song1.mp3",
-                        image: "./assets/img/song1.jpg",
+                        image: "./img/song1.jpg",
                     },
                     {
                         name: "SummerTime",
                         singer: "K-391",
                         path: "./assets/music/song2.mp3",
-                        image: "./assets/img/song2.jpg",
+                        image: "./img/song2.jpg",
                     },
                     {
                         name: "Monody",
                         singer: "TheFatRat",
                         path: "./assets/music/song3.mp3",
-                        image: "./assets/img/song3.jpg",
+                        image: "./img/song3.jpg",
                     },
                     {
                         name: "Reality",
                         singer: "Lost Frequencies",
                         path: "./assets/music/song4.mp3",
-                        image: "./assets/img/song4.jpg",
+                        image: "./img/song4.jpg",
                     },
                     {
                         name: "Ngày khác lạ",
                         singer: "Ngày khác lạ ft. Giang Pham, Tripel D",
                         path: "./assets/music/song5.mp3",
-                        image: "./assets/img/song5.jpg",
+                        image: "./img/song5.jpg",
                     },
                     {
                         name: "Lemon Tree",
                         singer: "DJ DESA REMIX",
                         path: "./assets/music/song6.mp3",
-                        image: "./assets/img/song6.jpg",
+                        image: "./img/song6.jpg",
                     },
                     {
                         name: "Sugar",
                         singer: "Maroon 5",
                         path: "./assets/music/song7.mp3",
-                        image: "./assets/img/song7.jpg",
+                        image: "./img/song7.jpg",
                     },
                     {
                         name: "My love",
                         singer: "Westlife",
                         path: "./assets/music/song8.mp3",
-                        image: "./assets/img/song8.jpg",
+                        image: "./img/song8.jpg",
                     },
                     {
                         name: "Attention",
                         singer: "Charlie Puth",
                         path: "./assets/music/song9.mp3",
-                        image: "./assets/img/song9.jpg",
+                        image: "./img/song9.jpg",
                     },
                     {
                         name: "Monter",
                         singer: "Katie Sky",
                         path: "./assets/music/song10.mp3",
-                        image: "./assets/img/song10.jpg",
+                        image: "./img/song10.jpg",
                     },
                 ],
 
@@ -171,7 +171,22 @@
                     });
                     $(".playlist").innerHTML = htmls.join("");
                 },
+                handelEvents: function () {
+                    const cd = $(".cd");
+                    const cdWidth = cd.offsetWidth;
+
+                    document.onscroll = function () {
+                        const scrollTop =
+                            window.scrollY ||
+                            document.documentElement.scrollTop;
+                        const newWidth = cdWidth - scrollTop;
+                        cd.style.width = newWidth > 0 ? newWidth + "px" : 0;
+                        cd.style.opacity = newWidth / cdWidth;
+                    };
+                },
                 start: function () {
+                    this.handelEvents();
+
                     this.render();
                 },
             };
