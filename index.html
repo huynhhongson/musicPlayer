@@ -94,113 +94,53 @@
             const audio = $("#audio");
             const playBtn = $(".btn-toggle-play");
             const player = $(".player");
+            const progress = $("#progress");
 
             const app = {
                 currentIndex: 0,
-                // songs: [
-                //     {
-                //         name: "navada",
-                //         singer: "Vicetone",
-                //         path: "./assets/music/song1.mp3",
-                //         image: "./assets/img/song1.jpg",
-                //     },
-                //     {
-                //         name: "SummerTime",
-                //         singer: "K-391",
-                //         path: "./assets/music/song2.mp3",
-                //         image: "./assets/img/song2.jpg",
-                //     },
-                //     {
-                //         name: "Monody",
-                //         singer: "TheFatRat",
-                //         path: "./assets/music/song3.mp3",
-                //         image: "./assets/img/song3.jpg",
-                //     },
-                //     {
-                //         name: "Reality",
-                //         singer: "Lost Frequencies",
-                //         path: "./assets/music/song4.mp3",
-                //         image: "./assets/img/song4.jpg",
-                //     },
-                //     {
-                //         name: "Ngày khác lạ",
-                //         singer: "Ngày khác lạ ft. Giang Pham, Tripel D",
-                //         path: "./assets/music/song5.mp3",
-                //         image: "./assets/img/song5.jpg",
-                //     },
-                //     {
-                //         name: "Lemon Tree",
-                //         singer: "DJ DESA REMIX",
-                //         path: "./assets/music/song6.mp3",
-                //         image: "./assets/img/song6.jpg",
-                //     },
-                //     {
-                //         name: "Sugar",
-                //         singer: "Maroon 5",
-                //         path: "./assets/music/song7.mp3",
-                //         image: "./assets/img/song7.jpg",
-                //     },
-                //     {
-                //         name: "My love",
-                //         singer: "Westlife",
-                //         path: "./assets/music/song8.mp3",
-                //         image: "./assets/img/song8.jpg",
-                //     },
-                //     {
-                //         name: "Attention",
-                //         singer: "Charlie Puth",
-                //         path: "./assets/music/song9.mp3",
-                //         image: "./assets/img/song9.jpg",
-                //     },
-                //     {
-                //         name: "Monter",
-                //         singer: "Katie Sky",
-                //         path: "./assets/music/song10.mp3",
-                //         image: "./assets/img/song10.jpg",
-                //     },
-                // ],
+                isPlaying: false,
                 songs: [
                     {
                         name: "Nơi Này Có Anh",
                         singer: "Sơn Tùng MTP",
-                        path: "./assets/music/NoiNayCoAnh-SonTungMTP-4772041.mp3",
+                        path: "./assets/music/NoiNayCoAnh.mp3",
                         image: "./assets/img/noiNayCoAnh.jpg",
                     },
                     {
-                        name: "Tu Phir Se Aana",
-                        singer: "Raftaar x Salim Merchant x Karma",
-                        path: "https://mp3.vlcmusic.com/download.php?track_id=34213&format=320",
-                        image: "https://1.bp.blogspot.com/-kX21dGUuTdM/X85ij1SBeEI/AAAAAAAAKK4/feboCtDKkls19cZw3glZWRdJ6J8alCm-gCNcBGAsYHQ/s16000/Tu%2BAana%2BPhir%2BSe%2BRap%2BSong%2BLyrics%2BBy%2BRaftaar.jpg",
+                        name: "See Tình",
+                        singer: "Hoàng Thùy Linh",
+                        path: "./assets/music/seeTinh.mp3",
+                        image: "./assets/img/seeTinh.jpg",
                     },
                     {
-                        name: "Naachne Ka Shaunq",
-                        singer: "Raftaar x Brobha V",
-                        path: "https://mp3.filmysongs.in/download.php?id=Naachne Ka Shaunq Raftaar Ft Brodha V Mp3 Hindi Song Filmysongs.co.mp3",
-                        image: "https://i.ytimg.com/vi/QvswgfLDuPg/maxresdefault.jpg",
+                        name: "Mất Kết NốiNối",
+                        singer: "Dương Domic",
+                        path: "./assets/music/matKetNoi.mp3",
+                        image: "./assets/img/matKetNoi.jpg",
                     },
                     {
-                        name: "Mantoiyat",
-                        singer: "Raftaar x Nawazuddin Siddiqui",
-                        path: "https://mp3.vlcmusic.com/download.php?track_id=14448&format=320",
-                        image: "https://a10.gaanacdn.com/images/song/39/24225939/crop_480x480_1536749130.jpg",
+                        name: "Cẩm Tú Cầu",
+                        singer: "RayO x Huỳnh Văn",
+                        path: "./assets/music/camTuCau.mp3",
+                        image: "./assets/img/camTuCau.jpg",
                     },
                     {
-                        name: "Aage Chal",
-                        singer: "Raftaar",
-                        path: "https://vlcmusic.com.se/download.php?track_id=25791&format=320",
-                        image: "https://a10.gaanacdn.com/images/albums/72/3019572/crop_480x480_3019572.jpg",
+                        name: "Ai Mang Cô Đơn Đi",
+                        singer: "ICM x APJ",
+                        path: "./assets/music/AiMangCoDonDi-KICMAPJ-6532340.mp3",
+                        image: "./assets/img/aiMangCoDonDi.jpg",
                     },
                     {
-                        name: "Damn",
-                        singer: "Raftaar x kr$na",
-                        path: "https://mp3.filmisongs.com/go.php?id=Damn%20Song%20Raftaar%20Ft%20KrSNa.mp3",
-                        image: "https://filmisongs.xyz/wp-content/uploads/2020/07/Damn-Song-Raftaar-KrNa.jpg",
+                        name: "Nhất Trên Đời",
+                        singer: "VAnh",
+                        path: "./assets/music/NhatTrenDoiDeyeRemix-VAnh-9210714.mp3",
+                        image: "./assets/img/NhatTrenDoi.jpg",
                     },
                     {
-                        name: "Feeling You",
-                        singer: "Raftaar x Harjas",
-                        path: "https://mp3.vlcmusic.com/download.php?track_id=27145&format=320",
-                        image: "https://a10.gaanacdn.com/gn_img/albums/YoEWlabzXB/oEWlj5gYKz/size_xxl_1586752323.webp",
+                        name: "Tình Sầu Thiên Thu Muôn Lối",
+                        singer: "Doãn Hiếu",
+                        path: "./assets/music/TinhSauThienThuMuonLoi-VoDinhHieu-6262177.mp3",
+                        image: "./assets/img/TinhSauThienThuMuonLoi.jpg",
                     },
                 ],
 
@@ -231,6 +171,7 @@
                     });
                 },
                 handelEvents: function () {
+                    const _this = this;
                     const cdWidth = cd.offsetWidth;
                     // Xử lý phóng to / thu nhỏ CD
                     document.onscroll = function () {
@@ -244,9 +185,38 @@
 
                     //Xử lý khi click play
                     playBtn.onclick = function () {
-                        audio.play();
+                        if (_this.isPlaying) {
+                            audio.pause();
+                        } else {
+                            audio.play();
+                        }
+                    };
+
+                    //Khi bài hát được play
+                    audio.onplay = function () {
+                        _this.isPlaying = true;
                         player.classList.add("playing");
                     };
+
+                    //Khi bài hát bị pause
+                    audio.onpause = function () {
+                        _this.isPlaying = false;
+                        player.classList.remove("playing");
+                    };
+
+                    //Khi tiến độ bài hát thay đổi
+                    audio.ontimeupdate = function(){
+                        if(audio.duration){
+                            const progressPercent = Math.floor(audio.currentTime / audio.duration * 100)
+                            progress.value = progressPercent
+                        }
+                    }
+
+                    //Xử lý khi tua bài hát
+                    progress.onchange = function(e){
+                        const seekTime = audio.duration / 100 * e.target.value
+                        audio.currentTime = seekTime
+                    }
                 },
                 loadCurrentSong: function () {
                     heading.textContent = this.currentSong.name;
