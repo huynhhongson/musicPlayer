@@ -88,68 +88,119 @@
             const $ = document.querySelector.bind(document);
             const $$ = document.querySelectorAll.bind(document);
 
+            const cd = $(".cd");
+            const heading = $("header h2");
+            const cdThumb = $(".cd-thumb");
+            const audio = $("#audio");
+            const playBtn = $(".btn-toggle-play");
+            const player = $(".player");
+
             const app = {
                 currentIndex: 0,
+                // songs: [
+                //     {
+                //         name: "navada",
+                //         singer: "Vicetone",
+                //         path: "./assets/music/song1.mp3",
+                //         image: "./assets/img/song1.jpg",
+                //     },
+                //     {
+                //         name: "SummerTime",
+                //         singer: "K-391",
+                //         path: "./assets/music/song2.mp3",
+                //         image: "./assets/img/song2.jpg",
+                //     },
+                //     {
+                //         name: "Monody",
+                //         singer: "TheFatRat",
+                //         path: "./assets/music/song3.mp3",
+                //         image: "./assets/img/song3.jpg",
+                //     },
+                //     {
+                //         name: "Reality",
+                //         singer: "Lost Frequencies",
+                //         path: "./assets/music/song4.mp3",
+                //         image: "./assets/img/song4.jpg",
+                //     },
+                //     {
+                //         name: "Ngày khác lạ",
+                //         singer: "Ngày khác lạ ft. Giang Pham, Tripel D",
+                //         path: "./assets/music/song5.mp3",
+                //         image: "./assets/img/song5.jpg",
+                //     },
+                //     {
+                //         name: "Lemon Tree",
+                //         singer: "DJ DESA REMIX",
+                //         path: "./assets/music/song6.mp3",
+                //         image: "./assets/img/song6.jpg",
+                //     },
+                //     {
+                //         name: "Sugar",
+                //         singer: "Maroon 5",
+                //         path: "./assets/music/song7.mp3",
+                //         image: "./assets/img/song7.jpg",
+                //     },
+                //     {
+                //         name: "My love",
+                //         singer: "Westlife",
+                //         path: "./assets/music/song8.mp3",
+                //         image: "./assets/img/song8.jpg",
+                //     },
+                //     {
+                //         name: "Attention",
+                //         singer: "Charlie Puth",
+                //         path: "./assets/music/song9.mp3",
+                //         image: "./assets/img/song9.jpg",
+                //     },
+                //     {
+                //         name: "Monter",
+                //         singer: "Katie Sky",
+                //         path: "./assets/music/song10.mp3",
+                //         image: "./assets/img/song10.jpg",
+                //     },
+                // ],
                 songs: [
                     {
-                        name: "navada",
-                        singer: "Vicetone",
-                        path: "./assets/music/song1.mp3",
-                        image: "./assets/img/song1.jpg",
+                        name: "Nơi Này Có Anh",
+                        singer: "Sơn Tùng MTP",
+                        path: "./assets/music/NoiNayCoAnh-SonTungMTP-4772041.mp3",
+                        image: "./assets/img/noiNayCoAnh.jpg",
                     },
                     {
-                        name: "SummerTime",
-                        singer: "K-391",
-                        path: "./assets/music/song2.mp3",
-                        image: "./assets/img/song2.jpg",
+                        name: "Tu Phir Se Aana",
+                        singer: "Raftaar x Salim Merchant x Karma",
+                        path: "https://mp3.vlcmusic.com/download.php?track_id=34213&format=320",
+                        image: "https://1.bp.blogspot.com/-kX21dGUuTdM/X85ij1SBeEI/AAAAAAAAKK4/feboCtDKkls19cZw3glZWRdJ6J8alCm-gCNcBGAsYHQ/s16000/Tu%2BAana%2BPhir%2BSe%2BRap%2BSong%2BLyrics%2BBy%2BRaftaar.jpg",
                     },
                     {
-                        name: "Monody",
-                        singer: "TheFatRat",
-                        path: "./assets/music/song3.mp3",
-                        image: "./assets/img/song3.jpg",
+                        name: "Naachne Ka Shaunq",
+                        singer: "Raftaar x Brobha V",
+                        path: "https://mp3.filmysongs.in/download.php?id=Naachne Ka Shaunq Raftaar Ft Brodha V Mp3 Hindi Song Filmysongs.co.mp3",
+                        image: "https://i.ytimg.com/vi/QvswgfLDuPg/maxresdefault.jpg",
                     },
                     {
-                        name: "Reality",
-                        singer: "Lost Frequencies",
-                        path: "./assets/music/song4.mp3",
-                        image: "./assets/img/song4.jpg",
+                        name: "Mantoiyat",
+                        singer: "Raftaar x Nawazuddin Siddiqui",
+                        path: "https://mp3.vlcmusic.com/download.php?track_id=14448&format=320",
+                        image: "https://a10.gaanacdn.com/images/song/39/24225939/crop_480x480_1536749130.jpg",
                     },
                     {
-                        name: "Ngày khác lạ",
-                        singer: "Ngày khác lạ ft. Giang Pham, Tripel D",
-                        path: "./assets/music/song5.mp3",
-                        image: "./assets/img/song5.jpg",
+                        name: "Aage Chal",
+                        singer: "Raftaar",
+                        path: "https://vlcmusic.com.se/download.php?track_id=25791&format=320",
+                        image: "https://a10.gaanacdn.com/images/albums/72/3019572/crop_480x480_3019572.jpg",
                     },
                     {
-                        name: "Lemon Tree",
-                        singer: "DJ DESA REMIX",
-                        path: "./assets/music/song6.mp3",
-                        image: "./assets/img/song6.jpg",
+                        name: "Damn",
+                        singer: "Raftaar x kr$na",
+                        path: "https://mp3.filmisongs.com/go.php?id=Damn%20Song%20Raftaar%20Ft%20KrSNa.mp3",
+                        image: "https://filmisongs.xyz/wp-content/uploads/2020/07/Damn-Song-Raftaar-KrNa.jpg",
                     },
                     {
-                        name: "Sugar",
-                        singer: "Maroon 5",
-                        path: "./assets/music/song7.mp3",
-                        image: "./assets/img/song7.jpg",
-                    },
-                    {
-                        name: "My love",
-                        singer: "Westlife",
-                        path: "./assets/music/song8.mp3",
-                        image: "./assets/img/song8.jpg",
-                    },
-                    {
-                        name: "Attention",
-                        singer: "Charlie Puth",
-                        path: "./assets/music/song9.mp3",
-                        image: "./assets/img/song9.jpg",
-                    },
-                    {
-                        name: "Monter",
-                        singer: "Katie Sky",
-                        path: "./assets/music/song10.mp3",
-                        image: "./assets/img/song10.jpg",
+                        name: "Feeling You",
+                        singer: "Raftaar x Harjas",
+                        path: "https://mp3.vlcmusic.com/download.php?track_id=27145&format=320",
+                        image: "https://a10.gaanacdn.com/gn_img/albums/YoEWlabzXB/oEWlj5gYKz/size_xxl_1586752323.webp",
                     },
                 ],
 
@@ -180,9 +231,8 @@
                     });
                 },
                 handelEvents: function () {
-                    const cd = $(".cd");
                     const cdWidth = cd.offsetWidth;
-
+                    // Xử lý phóng to / thu nhỏ CD
                     document.onscroll = function () {
                         const scrollTop =
                             window.scrollY ||
@@ -191,16 +241,18 @@
                         cd.style.width = newWidth > 0 ? newWidth + "px" : 0;
                         cd.style.opacity = newWidth / cdWidth;
                     };
+
+                    //Xử lý khi click play
+                    playBtn.onclick = function () {
+                        audio.play();
+                        player.classList.add("playing");
+                    };
                 },
                 loadCurrentSong: function () {
-                    const heading = $("header h2");
-                    const cdThumb = $(".cd-thumb");
-                    const audio = $("#audio");
-
                     heading.textContent = this.currentSong.name;
                     cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`;
                     audio.src = this.currentSong.path;
-                    console.log(heading, cdThumb, audio);
+                    // console.log(heading, cdThumb, audio);
                 },
 
                 start: function () {
