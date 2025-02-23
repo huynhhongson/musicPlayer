@@ -118,10 +118,22 @@
                         image: "./assets/img/seeTinh.jpg",
                     },
                     {
-                        name: "Mất Kết NốiNối",
+                        name: "Đế Vương",
+                        singer: "Đình Dũng ACV",
+                        path: "./assets/music/DeVuong-DinhDungACV-7121634.mp3",
+                        image: "./assets/img/deVuong.jpg",
+                    },
+                    {
+                        name: "Mất Kết Nối",
                         singer: "Dương Domic",
                         path: "./assets/music/matKetNoi.mp3",
                         image: "./assets/img/matKetNoi.jpg",
+                    },
+                    {
+                        name: "Đúng Người Đúng Thời Điểm",
+                        singer: "Thanh Hưng",
+                        path: "./assets/music/dungNguoiDungThoiDiem.mp3",
+                        image: "./assets/img/dungNguoiDungThoiDiem.jpg",
                     },
                     {
                         name: "Cẩm Tú Cầu",
@@ -140,6 +152,12 @@
                         singer: "VAnh",
                         path: "./assets/music/NhatTrenDoiDeyeRemix-VAnh-9210714.mp3",
                         image: "./assets/img/NhatTrenDoi.jpg",
+                    },
+                    {
+                        name: "Hẹn Một Mai",
+                        singer: "Bùi Anh Tuấn",
+                        path: "./assets/music/HenMotMai-BuiAnhTuan-4652623.mp3",
+                        image: "./assets/img/HenMotMai.jpg",
                     },
                     {
                         name: "Tình Sầu Thiên Thu Muôn Lối",
@@ -249,6 +267,7 @@
                         }
                         audio.play();
                         _this.render()
+                        _this.scrollToActiveSong();
                     };
                     //Xử lý khi click prev bài hát
                     prevBtn.onclick = function () {
@@ -259,6 +278,7 @@
                         }
                         audio.play();
                         _this.render()
+                        _this.scrollToActiveSong();
                     };
                     //Xử lý khi click random bài hát
                     randomBtn.onclick = function (e) {
@@ -279,6 +299,14 @@
                             nextBtn.click();
                         }
                     };
+                },
+                scrollToActiveSong: function(){
+                    setTimeout(()=> {
+                        $('.song.active').scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'end'
+                        });
+                    }, 300)
                 },
                 loadCurrentSong: function () {
                     heading.textContent = this.currentSong.name;
