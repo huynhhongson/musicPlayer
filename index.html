@@ -87,6 +87,7 @@
              **/
             const $ = document.querySelector.bind(document);
             const $$ = document.querySelectorAll.bind(document);
+            const PLAYER_STORAGE_KEY = 'music-player'
 
             const cd = $(".cd");
             const heading = $("header h2");
@@ -105,6 +106,7 @@
                 isPlaying: false,
                 isRandom: false,
                 isRepeat: false,
+                config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
                 songs: [
                     {
                         name: "Nơi Này Có Anh",
@@ -167,7 +169,10 @@
                         image: "./assets/img/TinhSauThienThuMuonLoi.jpg",
                     },
                 ],
-
+                setConfig: function(key, value){
+                    this.config[key] = value;
+                    localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));
+                },
                 render: function () {
                     const htmls = this.songs.map((song, index) => {
                         return `
@@ -284,12 +289,14 @@
                     //Xử lý khi click random bài hát
                     randomBtn.onclick = function (e) {
                         _this.isRandom = !_this.isRandom;
+                        _this.setConfig('isRandom', _this.isRandom)
                         randomBtn.classList.toggle("active", _this.isRandom);
                     };
 
                     //Xử lý repeat bài hát
                     repeatBtn.onclick = function (e) {
                         _this.isRepeat = !_this.isRepeat;
+                        _this.setConfig('isRepeat', _this.isRepeat)
                         repeatBtn.classList.toggle("active", _this.isRepeat);
                     };
                     //Xử lý next bài hát khi kết thúc
@@ -318,6 +325,10 @@
                             }
                         }
                     }
+                },
+                loadConfig: function(){
+                    this.isRandom = this.config.isRandom
+                    this.isRepeat = this.config.isRepeat
                 },
                 scrollToActiveSong: function(){
                     setTimeout(()=> {
@@ -357,6 +368,9 @@
                     this.loadCurrentSong();
                 },
                 start: function () {
+                    //Gán cấu hình từ config vào ứng dụng
+                    this.loadConfig()
+
                     //Định nghĩa các thuộc tính cho object
                     this.definedProperties();
 
@@ -368,6 +382,10 @@
 
                     //Render playlist
                     this.render();
+
+                    //Hiển thị trạng thái ban đầu của random và repeat
+                    randomBtn.classList.toggle("active", this.isRandom);
+                    repeatBtn.classList.toggle("active", this.isRepeat);
                 },
             };
 
